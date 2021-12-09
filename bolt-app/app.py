@@ -1,3 +1,6 @@
+"""
+https://slack.dev/bolt-python/ja-jp/tutorial/getting-started
+"""
 import os
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
