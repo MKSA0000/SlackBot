@@ -1,13 +1,15 @@
 """
 https://slack.dev/bolt-python/ja-jp/tutorial/getting-started
 """
-import os
+import os,json
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
-SLACK_BOT_TOKEN = "xoxb-(トークンを貼る)"
-SLACK_APP_TOKEN = "xapp-(トークンを貼る)"
-SLACK_SIGNING_SECRET="(トークンを貼る)"
+credentials = json.loads(open('credentials.json').read())
+SLACK_BOT_TOKEN = credentials['SLACK_BOT_TOKEN']
+SLACK_APP_TOKEN = credentials['SLACK_APP_TOKEN']
+SLACK_SIGNING_SECRET= credentials['SLACK_SIGNING_SECRET']
+
 # ボットトークンとソケットモードハンドラーを使ってアプリを初期化します
 app = App(signing_secret=SLACK_SIGNING_SECRET,token=SLACK_BOT_TOKEN)
 
